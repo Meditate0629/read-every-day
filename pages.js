@@ -5,13 +5,24 @@
   var Pages = {};
 
   /* ---------- 公共片段 ---------- */
-  function topbar(title, right) {
+  /* 顶栏分两层：
+   *   第一层 = 标题 + 右icon（搜索、深浅色）—— 永远只有一行，不会把图标挤到下面去
+   *   第二层 = 副标题（一句话说明）或页面自己的控件（分段器、搜索框、主按钮）
+   * 以前不分层，长句子会把「切换深浅色」挤到第三行，孤零零一个圆按钮很难看。
+   * 调用：topbar(标题) / topbar(标题, 副标题文字) / topbar(标题, null, 控件html)
+   */
+  function topbar(title, sub, actions) {
+    var iconBtns =
+      '<button class="icon-btn" data-palette title="全局搜索"><svg><use href="#i-search"/></svg></button>' +
+      '<button class="icon-btn" data-theme-toggle title="切换深浅色"><svg><use href="#i-sun"/></svg></button>';
     return '<div class="topbar">' +
+      '<div class="topbar-main">' +
       '<div class="page-title">' + U.escape(title) + '</div>' +
       '<div class="spacer"></div>' +
-      (right || '') +
-      '<button class="icon-btn" data-palette title="搜索"><svg><use href="#i-search"/></svg></button>' +
-      '<button class="icon-btn" data-theme-toggle title="切换深浅色"><svg><use href="#i-moon"/></svg></button>' +
+      (actions || '') +
+      iconBtns +
+      '</div>' +
+      (sub ? '<div class="topbar-sub">' + sub + '</div>' : '') +
       '</div>';
   }
   Pages.topbar = topbar;

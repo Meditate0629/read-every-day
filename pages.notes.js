@@ -49,9 +49,9 @@
   function render() {
     var editing = !!selectedId || !!draft;
     rootEl.innerHTML = Pages.topbar('笔记',
-      '<div class="search"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-linecap="round"><use href="#i-search"/></svg>' +
-      '<input id="noteSearch" placeholder="搜正文、摘录、标签、书名…" value="' + U.escape(query) + '"></div>' +
-      '<button class="btn btn-primary" id="btnNewNote">＋ 新建笔记</button>') +
+      '<div class="search"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round"><use href="#i-search"/></svg>' +
+      '<input id="noteSearch" placeholder="搜正文、摘录、标签、书名…" value="' + U.escape(query) + '"></div>',
+      '<button class="btn btn-primary btn-sm" id="btnNewNote">＋ 新建</button>') +
       '<div class="split' + (isMobile() && editing ? ' mobile-editing' : '') + '">' +
       '<div class="card" style="padding:12px 10px">' +
       '<div class="filter-pills" id="pills">' + pillsHtml() + '</div>' +
@@ -130,7 +130,7 @@
     var n = current();
     if (!n) {
       box.innerHTML = '<div class="card"><div class="empty-hint">' +
-        '左边选一条，或者点右上角的「新建笔记」。<br><br>' +
+        '点上面一条笔记开始编辑，或者点右上角绿色的「＋ 新建」。<br><br>' +
         '<span class="muted">主框写你自己的想法就行；抄下来的原文、页码、标签都收在下面的折叠项里，需要时才展开。</span>' +
         '</div></div>';
       return;

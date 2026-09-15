@@ -16,8 +16,23 @@
 
   App.applyTheme = function () {
     var theme = (App.settings && App.settings.theme) || 'system';
-    document.body.classList.toggle('dark', resolveDark(theme));
+    var dark = resolveDark(theme);
+    document.body.classList.toggle('dark', dark);
+    syncThemeIcon(dark);
   };
+
+  /* 顶栏那颗圆按钮的图标要跟着当前外观走：现在是浅色 → 显示月亮（点了变深色） */
+  function syncThemeIcon(dark) {
+    var uses = document.querySelectorAll('[data-theme-toggle] use');
+    for (var i = 0; i < uses.length; i++) {
+      uses[i].setAttribute('href', dark ? '#i-sun' : '#i-moon');
+    }
+    var btns = document.querySelectorAll('[data-theme-toggle]');
+    for (var j = 0; j < btns.length; j++) {
+      btns[j].title = dark ? '切换到浅色' : '切换到深色';
+    }
+  }
+  App.syncThemeIcon = syncThemeIcon;
 
   App.setTheme = function (theme) {
     return Store.saveSettings({ theme: theme }).then(function () {
@@ -63,7 +78,10 @@
     var root = U.$('#view');
     global.scrollTo(0, 0);
     try {
-      Promise.resolve(Pages[route](root)).catch(showError);
+      Promise.resolve(Pages[route](root)).then(function () {
+        // 页面刚重画过，顶栏那颗深浅色按钮的图标要按当前外观补一次
+        syncThemeIcon(document.body.classList.contains('dark'));
+      }).catch(showError);
     } catch (e) {
       showError(e);
     }

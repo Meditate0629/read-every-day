@@ -43,21 +43,24 @@
   /* 计划页的顶栏自己拼：标题 | 日/月/年 | 空格 | 翻页 | 主题 */
   function planTopbar() {
     return '<div class="topbar">' +
+      '<div class="topbar-main">' +
       '<div class="page-title">计划</div>' +
-      '<div class="seg" style="margin-left:6px">' +
+      '<div class="seg">' +
       '<button data-view="day" class="' + (view === 'day' ? 'on' : '') + '">日</button>' +
       '<button data-view="month" class="' + (view === 'month' ? 'on' : '') + '">月</button>' +
       '<button data-view="year" class="' + (view === 'year' ? 'on' : '') + '">年</button>' +
       '</div>' +
       '<div class="spacer"></div>' +
-      '<div class="day-head">' +
-      '<button class="nav-btn" data-nav="-1">◀</button>' +
-      '<span style="min-width:152px;text-align:center">' + U.escape(cursorLabel()) + '</span>' +
-      '<button class="nav-btn" data-nav="1">▶</button>' +
+      '<button class="icon-btn" data-palette title="全局搜索"><svg><use href="#i-search"/></svg></button>' +
+      '<button class="icon-btn" data-theme-toggle title="切换深浅色"><svg><use href="#i-moon"/></svg></button>' +
+      '</div>' +
+      '<div class="topbar-sub day-head">' +
+      '<button class="nav-btn" data-nav="-1">‹</button>' +
+      '<span class="day-label">' + U.escape(cursorLabel()) + '</span>' +
+      '<button class="nav-btn" data-nav="1">›</button>' +
+      '<div class="spacer"></div>' +
       '<button class="btn btn-sm" data-nav="0">' + (view === 'day' ? '今天' : view === 'month' ? '本月' : '今年') + '</button>' +
       '</div>' +
-      '<button class="icon-btn" data-palette title="搜索"><svg><use href="#i-search"/></svg></button>' +
-      '<button class="icon-btn" data-theme-toggle title="切换深浅色"><svg><use href="#i-moon"/></svg></button>' +
       '</div>';
   }
 

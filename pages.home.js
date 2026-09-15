@@ -48,14 +48,15 @@
     rootEl.innerHTML =
       Pages.topbar('首页', '<span class="muted small">' + U.escape(U.fmtDateCN(today)) + ' · 今年第 ' + weekOfYear(today) + ' 周</span>') +
 
-      '<div class="hero row-flex" style="margin-bottom:18px">' +
-      '<div><div style="font-size:20px;font-weight:600">' + greeting() + '</div>' +
-      '<div class="muted small">' + (st.total ? '今天安排了 ' + st.total + ' 件事，已完成 ' + st.doneCount + ' 件' : '今天还没有安排') + '</div></div>' +
-      '<div class="spacer"></div>' +
-      (dayGoal
-        ? '<div style="text-align:right"><div class="muted small">今日已读</div><div class="mono" style="font-weight:600">' + st.minutes + ' / ' + dayGoal + ' 分钟</div></div>' +
-        '<div class="ring" style="--v:' + pct + '"><div><b>' + pct + '%</b><small>今日</small></div></div>'
-        : (st.minutes ? '<div class="mono" style="font-weight:600">今天已读 ' + U.fmtMinutes(st.minutes) + '</div>' : '')) +
+      '<div class="hero">' +
+      '<div class="hero-main">' +
+      '<div class="hero-greet">' + greeting() + '</div>' +
+      '<div class="hero-sub">' +
+      (st.total ? '今天安排了 ' + st.total + ' 件事，已完成 ' + st.doneCount + ' 件' : '今天还没有安排') +
+      (st.minutes ? ' · 已读 ' + U.escape(U.fmtMinutes(st.minutes)) : '') +
+      (dayGoal ? ' · 目标 ' + dayGoal + ' 分钟' : '') +
+      '</div></div>' +
+      (dayGoal ? '<div class="ring" style="--v:' + pct + '"><div><b>' + pct + '%</b><small>今日</small></div></div>' : '') +
       '</div>' +
 
       '<div class="grid-2">' +
@@ -138,6 +139,15 @@
   }
 
   /* ---------- 本月 ---------- */
+  var HEAT_HEAD = '<div class="heat-head"><span>日</span><span>一</span><span>二</span><span>三</span>' +
+    '<span>四</span><span>五</span><span>六</span></div>';
+  function heatLegend() {
+    return '<span class="heat-legend">少' +
+      '<i style="background:var(--surface-3)"></i><i style="background:var(--heat1)"></i>' +
+      '<i style="background:var(--heat2)"></i><i style="background:var(--heat3)"></i>' +
+      '<i style="background:var(--heat4)"></i>多</span>';
+  }
+
   function monthCard(d, mst, month, today) {
     var first = U.monthStart(today);
     var days = U.monthDays(today);
@@ -149,18 +159,20 @@
       var min = mst.perDay[date] || 0;
       var planned = d.planItems.some(function (it) { return it.date === date && !it.deferredTo; });
       var cls = min === 0 ? (planned ? 'planned' : '') : min < 20 ? 'l1' : min < 40 ? 'l2' : min < 60 ? 'l3' : 'l4';
-      cells += '<i class="' + cls + '"></i>';
+      if (date === today) cls += ' today';
+      cells += '<i class="' + cls + '" title="' + day + ' 日' + (min ? ' · ' + U.fmtMinutes(min) : '') + '"></i>';
     }
     var goal = Data.monthGoal(d.goals, month);
 
     return '<div class="card card-clickable" data-go="plan" data-view="month">' +
       '<div class="card-head"><div class="card-title">本月 <small>' + U.escape(Data.monthTitle(month)) + '</small></div>' +
       '<div class="spacer"></div>' +
-      '<span class="pill">已完成 ' + mst.doneDays + ' 天</span></div>' +
+      '<span class="pill brand">已完成 ' + mst.doneDays + ' 天</span></div>' +
+      HEAT_HEAD +
       '<div class="heat">' + cells + '</div>' +
       '<div class="card-foot">本月累计 ' + U.escape(U.fmtMinutes(mst.minutes)) + (mst.pages ? ' · ' + mst.pages + ' 页' : '') +
       '<div class="spacer"></div>' +
-      (goal ? '<span class="muted">月目标 ' + goal + ' 分钟</span>' : '<span class="muted">颜色越深 = 那天读得越久</span>') +
+      (goal ? '<span class="muted">月目标 ' + goal + ' 分钟</span>' : heatLegend()) +
       '</div></div>';
   }
 
@@ -221,7 +233,7 @@
     return '<div class="card">' +
       '<div class="card-head"><div class="card-title">最近笔记</div><div class="spacer"></div>' +
       '<span class="muted small">共 ' + notes.length + ' 条</span></div>' +
-      (list || '<div class="muted small">还没有笔记。写笔记的页面还没做，但首页「转为笔记」已经能存进去了。</div>') +
+      (list || '<div class="muted small">还没有笔记。读的时候想到什么，去「笔记」页写下来。</div>') +
       '</div>';
   }
 
