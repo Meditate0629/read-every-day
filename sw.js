@@ -2,17 +2,17 @@
  * 只在 https 下注册（见 index.html 里的判断），本地预览不走这里，免得缓存挡着改代码。
  * 改了东西要发布时，把下面的版本号 +1 就行。
  */
-const CACHE = 'dushu-mobile-v1';
+const CACHE = 'dushu-mobile-v2';
 const PRECACHE = [
   './', './index.html',
-  './css/app.css',
+  './app.css',
   './icon.svg', './icon-180.png', './icon-192.png', './icon-512.png',
   './manifest.webmanifest',
-  './js/util.js', './js/store.js', './js/backup.js', './js/data.js',
-  './js/pdf.js', './js/share.js', './js/timer.js', './js/reminders.js',
-  './js/pages.js', './js/pages.plan.js', './js/pages.home.js',
-  './js/pages.notes.js', './js/pages.timer.js', './js/pages.reminders.js',
-  './js/pages.share.js', './js/palette.js', './js/selftest.js', './js/main.js'
+  './util.js', './store.js', './backup.js', './data.js',
+  './pdf.js', './share.js', './timer.js', './reminders.js',
+  './pages.js', './pages.plan.js', './pages.home.js',
+  './pages.notes.js', './pages.timer.js', './pages.reminders.js',
+  './pages.share.js', './palette.js', './selftest.js', './main.js'
 ];
 
 self.addEventListener('install', function (e) {

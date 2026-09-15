@@ -1,6 +1,6 @@
 {
-  "name": "读书计划",
-  "short_name": "读书",
+  "name": "Read Every Day",
+  "short_name": "Read Every Day",
   "description": "做日月年读书计划、记笔记、计时、提醒、导出分享，数据只存在本机",
   "lang": "zh-CN",
   "start_url": "./index.html",
