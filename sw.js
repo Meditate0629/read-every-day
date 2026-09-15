@@ -2,7 +2,7 @@
  * 只在 https 下注册（见 index.html 里的判断），本地预览不走这里，免得缓存挡着改代码。
  * 改了东西要发布时，把下面的版本号 +1 就行。
  */
-const CACHE = 'dushu-mobile-v3';
+const CACHE = 'dushu-mobile-v4';
 const PRECACHE = [
   './', './index.html',
   './app.css',

@@ -286,7 +286,7 @@
       }
       if (collapsed) {
         dock.innerHTML = '<button class="dock-bell" data-dock="expand" title="提醒">' +
-          '<svg><use href="#i-bell"/></svg>' +
+          '<svg><use href="#i-bell-f"/></svg>' +
           (live.length > 1 ? '<span class="badge">' + live.length + '</span>' : '') +
           '</button>';
         return;
@@ -310,7 +310,7 @@
       }
 
       dock.innerHTML = '<div class="dock-popup">' +
-        '<h4><svg style="width:16px;height:16px;vertical-align:-3px;margin-right:2px"><use href="#i-bell"/></svg>' + U.escape(head) + '</h4>' +
+        '<h4><svg style="width:17px;height:17px;vertical-align:-3px;margin-right:3px"><use href="#i-bell-f"/></svg>' + U.escape(head) + '</h4>' +
         body +
         '<div class="dock-actions">' + actions + '</div>' +
         '</div>';

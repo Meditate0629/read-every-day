@@ -73,7 +73,12 @@
   function render() {
     var route = currentRoute();
     U.$$('#nav .nav-item').forEach(function (a) {
-      a.classList.toggle('active', a.getAttribute('href') === '#/' + route);
+      var on = a.getAttribute('href') === '#/' + route;
+      a.classList.toggle('active', on);
+      // iOS 的习惯：选中的那个用实心图标，其余用描边
+      var icon = a.getAttribute('data-icon');
+      var use = a.querySelector('use');
+      if (icon && use) use.setAttribute('href', '#i-' + icon + (on ? '-f' : ''));
     });
     var root = U.$('#view');
     global.scrollTo(0, 0);

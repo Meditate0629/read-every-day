@@ -27,12 +27,22 @@
   <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="11" cy="11" r="6.4"/><path d="M15.8 15.8 20 20"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.4A8.2 8.2 0 0 1 9.6 4 8.4 8.4 0 1 0 20 14.4Z"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6 6 18M18 6l1.6-1.6"/></symbol>
-  <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M11 4.6a1 1 0 1 1 2 0V11h6.4a1 1 0 1 1 0 2H13v6.4a1 1 0 1 1-2 0V13H4.6a1 1 0 1 1 0-2H11V4.6Z"/></symbol>
   <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.4M12 7.8v.6"/></symbol>
-  <symbol id="i-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 21.2 19.4H2.8z"/><path d="M12 9.8v4.4M12 17.2v.4"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path fill-rule="evenodd" d="M10.98 3.2a1.18 1.18 0 0 1 2.04 0l8.9 15.4a1.18 1.18 0 0 1-1.02 1.8H3.1a1.18 1.18 0 0 1-1.02-1.8l8.9-15.4ZM12 7.6a1 1 0 0 1 1 1v5.2a1 1 0 1 1-2 0V8.6a1 1 0 0 1 1-1Zm0 8.2a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3Z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.6 9.6 17.2 19 7.8"/></symbol>
   <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6v12.2M7.4 11.4 12 16l4.6-4.6M4.4 20.4h15.2"/></symbol>
   <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.4V8.2M7.4 12.6 12 8l4.6 4.6M4.4 3.6h15.2"/></symbol>
+
+  <!-- 实心版：iOS 的用法是「选中那个用实心，其余用描边」。
+       注意每个都要写 stroke="none"，否则外层 svg 的 stroke 会继承下来把实心描粗。 -->
+  <symbol id="i-home-f" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path fill-rule="evenodd" d="M12.75 2.36a1.15 1.15 0 0 0-1.5 0L2.62 9.4a1.4 1.4 0 0 0 .88 2.45h1.02v6.83c0 1.12.9 2.02 2.02 2.02h10.92c1.12 0 2.02-.9 2.02-2.02V11.85h1.02a1.4 1.4 0 0 0 .88-2.45L12.75 2.36ZM9.8 20.7V15.6a1.1 1.1 0 0 1 1.1-1.1h2.2a1.1 1.1 0 0 1 1.1 1.1v5.1Z"/></symbol>
+  <symbol id="i-cal-f" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path fill-rule="evenodd" d="M7.35 2.2a1.1 1.1 0 0 1 1.1 1.1v.86h7.1V3.3a1.1 1.1 0 1 1 2.2 0v.9a4.2 4.2 0 0 1 3.35 4.1v9.1a4.2 4.2 0 0 1-4.2 4.2H7.1a4.2 4.2 0 0 1-4.2-4.2V8.3c0-2.04 1.45-3.74 3.35-4.1v-.9a1.1 1.1 0 0 1 1.1-1.1ZM2.95 8.55h18.1v1.35H2.95Z"/></symbol>
+  <symbol id="i-note-f" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path fill-rule="evenodd" d="M6.6 2.4h6.7l5.2 5.2v12.1a1.9 1.9 0 0 1-1.9 1.9H6.6a1.9 1.9 0 0 1-1.9-1.9V4.3a1.9 1.9 0 0 1 1.9-1.9Zm6.3 1.75v3.75h3.75L12.9 4.15ZM8.3 11.2a1 1 0 1 0 0 2h7.4a1 1 0 1 0 0-2H8.3Zm0 3.9a1 1 0 1 0 0 2h4.9a1 1 0 1 0 0-2H8.3Z"/></symbol>
+  <symbol id="i-clock-f" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path fill-rule="evenodd" d="M12 2.4a9.6 9.6 0 1 0 0 19.2 9.6 9.6 0 0 0 0-19.2ZM11.1 6.7h1.8v6.2h-1.8ZM11.1 11.1h5.3v1.8h-5.3Z"/></symbol>
+  <symbol id="i-bell-f" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.2c-3.5 0-6.34 2.84-6.34 6.34v3.9l-1.3 2.6a1.25 1.25 0 0 0 1.12 1.81h13.04a1.25 1.25 0 0 0 1.12-1.81l-1.3-2.6v-3.9c0-3.5-2.84-6.34-6.34-6.34Z"/><path d="M9.95 18.5h4.1a2.05 2.05 0 0 1-4.1 0Z"/></symbol>
+  <symbol id="i-share-f" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path fill-rule="evenodd" d="M5.4 3.4h13.2A3.4 3.4 0 0 1 22 6.8v10.4a3.4 3.4 0 0 1-3.4 3.4H5.4A3.4 3.4 0 0 1 2 17.2V6.8a3.4 3.4 0 0 1 3.4-3.4Zm2.35 2.8a2.35 2.35 0 1 0 0 4.7 2.35 2.35 0 0 0 0-4.7Zm-3.3 12.9 5.15-5.15 3.05 3.05 3.3-3.3 3.65 3.65v.35c0 .75-.6 1.35-1.35 1.35H4.45Z"/></symbol>
+  <symbol id="i-cog-f" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path fill-rule="evenodd" d="M3 4.8H21V7.2H3ZM3 10.8H21V13.2H3ZM3 16.8H21V19.2H3ZM5.6 6a3 3 0 1 0 6 0 3 3 0 1 0-6 0ZM12 12a3 3 0 1 0 6 0 3 3 0 1 0-6 0ZM5.6 18a3 3 0 1 0 6 0 3 3 0 1 0-6 0ZM6.3 6a2.3 2.3 0 1 0 4.6 0 2.3 2.3 0 1 0-4.6 0ZM12.7 12a2.3 2.3 0 1 0 4.6 0 2.3 2.3 0 1 0-4.6 0ZM6.3 18a2.3 2.3 0 1 0 4.6 0 2.3 2.3 0 1 0-4.6 0Z"/></symbol>
 </svg>
 
 <div class="app">
@@ -46,13 +56,13 @@
       <span class="spacer"></span><kbd style="font-size:11px;border:1px solid var(--border);border-radius:4px;padding:0 5px">Ctrl K</kbd>
     </button>
     <nav class="nav" id="nav">
-      <a class="nav-item" href="#/home"><svg><use href="#i-home"/></svg>首页</a>
-      <a class="nav-item" href="#/plan"><svg><use href="#i-cal"/></svg>计划</a>
-      <a class="nav-item" href="#/notes"><svg><use href="#i-note"/></svg>笔记</a>
-      <a class="nav-item" href="#/timer"><svg><use href="#i-clock"/></svg>计时</a>
-      <a class="nav-item" href="#/reminders"><svg><use href="#i-bell"/></svg>提醒</a>
-      <a class="nav-item" href="#/share"><svg><use href="#i-share"/></svg>分享</a>
-      <a class="nav-item" href="#/settings"><svg><use href="#i-cog"/></svg>设置</a>
+      <a class="nav-item" href="#/home" data-icon="home"><svg><use href="#i-home"/></svg>首页</a>
+      <a class="nav-item" href="#/plan" data-icon="cal"><svg><use href="#i-cal"/></svg>计划</a>
+      <a class="nav-item" href="#/notes" data-icon="note"><svg><use href="#i-note"/></svg>笔记</a>
+      <a class="nav-item" href="#/timer" data-icon="clock"><svg><use href="#i-clock"/></svg>计时</a>
+      <a class="nav-item" href="#/reminders" data-icon="bell"><svg><use href="#i-bell"/></svg>提醒</a>
+      <a class="nav-item" href="#/share" data-icon="share"><svg><use href="#i-share"/></svg>分享</a>
+      <a class="nav-item" href="#/settings" data-icon="cog"><svg><use href="#i-cog"/></svg>设置</a>
     </nav>
     <div class="sidebar-foot">
       <div id="miniTimer"></div>
